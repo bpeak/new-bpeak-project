@@ -1,0 +1,7 @@
+// {
+//   "baseUrl": ".",
+//   "paths": {
+//     "components/*": ["src/shared/components/*"],
+//     "lib/*": ["src/shared/lib/*"]
+//   }
+// }

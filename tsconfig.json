@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "baseUrl": "src",
+    // "rootDir": "./src/shared",
+    "jsx": "react",
+    "target": "es5",
+    "moduleResolution": "node",
+    "allowJs": true,
+    "noEmit": true,
+    "strict": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "typeRoots": ["./node_modules/@types", "./src/types/preact.d.ts"],
+    "paths": {
+      "components/*": ["shared/components/*"],
+      "lib/*": ["shared/lib/*"],
+      "hooks/*": ["shared/hooks/*"],
+      "store": ["shared/store/index.ts"],
+      "store/*": ["shared/store/*"]
+    }
+  }
+}

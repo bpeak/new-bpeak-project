@@ -1,0 +1,31 @@
+@import 'scss/global.scss';
+
+.Header {
+  position: sticky;
+  top: 0;
+  // transform: translate(-100%);
+
+  .top {
+    background-color: $light-bgc;
+    height: 65px;
+    transition: all;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+  }
+  .bottom {
+    background-color: $dark-bgc;
+    height: 54px;
+    transition: all;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+  }
+}
+
+.Header.dark {
+  .top {
+    background-color: $dark-bgc;
+  }
+  .bottom {
+    background-color: $dark-bgc;
+  }
+}
