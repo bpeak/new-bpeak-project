@@ -1,9 +1,6 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-const componentSplitting = path => {
-  console.log(path, "components/Header", path === "components/Header");
-  const getComponent = () => import(path);
-  console.log(getComponent);
+const componentSplitting = getComponent => {
   return class AsyncComponent extends Component {
     static Component = null;
 

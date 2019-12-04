@@ -1,0 +1,77 @@
+<html>
+  <head>
+    <style>
+      .con {
+        width: 600px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="con">
+      <canvas id="myChart" width="400" height="200"></canvas>
+    </div>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/af.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
+    <script>
+      var ctx = document.getElementById('myChart').getContext('2d');
+      var datas = [];
+      let result = 0;
+      for (let i = 0; i < 10; i++) {
+        var startdate = moment();
+        startdate = startdate.subtract(i, 'days');
+        startdate = startdate.format('DD/MM/YYYY');
+        result += i + Math.random() * 10;
+        const data = {
+          x: startdate,
+          y: result,
+        };
+        datas.push(data);
+        console.log(datas);
+      }
+      var myLineChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          datasets: [
+            {
+              label: 'UK Dates',
+              data: datas,
+              fill: false,
+              borderColor: 'blue',
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          title: {
+            display: true,
+            text: 'Chart.js Time Scale',
+          },
+          scales: {
+            xAxes: [
+              {
+                type: 'time',
+                time: {
+                  format: 'DD/MM/YYYY',
+                  tooltipFormat: 'll',
+                },
+                scaleLabel: {
+                  display: true,
+                  labelString: 'Date',
+                },
+              },
+            ],
+            yAxes: [
+              {
+                scaleLabel: {
+                  display: true,
+                  labelString: 'value',
+                },
+              },
+            ],
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

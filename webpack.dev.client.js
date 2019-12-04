@@ -8,7 +8,8 @@ const port = process.env.PORT || 5000;
 const createUniqueIdGenerator = require('./webpackUtils/createUniqueIdGenerator');
 const uniqueIdGenerator = createUniqueIdGenerator();
 const generateScopedName = (localName, resourcePath) => {
-  return `${uniqueIdGenerator(resourcePath + localName)}`;
+  const id = `${uniqueIdGenerator(resourcePath + localName)}`;
+  return id;
 };
 
 module.exports = {
@@ -40,11 +41,16 @@ module.exports = {
                     syntax: 'postcss-scss', // your preprocessor
                   },
                 },
+                exclude: 'tui-editor',
                 generateScopedName,
               },
             ],
           ],
         },
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.scss$/,
@@ -94,6 +100,9 @@ module.exports = {
   devtool: 'inline-source-map',
   devServer: {
     contentBase: path.resolve(__dirname, 'dist'),
+    proxy: {
+      '/api': 'http://localhost:70/api/',
+    },
     index: 'index.html',
     publicPath: 'http://localhost:5000/dist/',
     port,

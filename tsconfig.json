@@ -11,6 +11,7 @@
     "isolatedModules": true,
     "esModuleInterop": true,
     "typeRoots": ["./node_modules/@types", "./src/types/preact.d.ts"],
+    "resolveJsonModule": true,
     "paths": {
       "components/*": ["shared/components/*"],
       "lib/*": ["shared/lib/*"],
